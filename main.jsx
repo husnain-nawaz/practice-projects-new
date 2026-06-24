@@ -5,6 +5,27 @@ import App from './App.jsx'
 
 
 
+
+
+
+// createRoot(document.getElementById('root')).render(
+//   <StrictMode>
+//     <App />
+//   </StrictMode>,
+// )
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const myelement = (
 //   <table>
 //     <tr>
@@ -409,58 +430,266 @@ import App from './App.jsx'
 
 
 
-function Model({isopen,onclose,children}){
-    if(!isopen){
-        return null;
-    }
-    else{
-    return(
-        <div>
-            {children}
-            <button onClick={onclose}>close</button>
-        </div>
-    )}
-}
-function MyApp(){
-    const [isopen, setisopen] = useState(false);
-    return(
-        <div>
-            <button onClick={()=>setisopen(true)}>OPEN</button>
-            <Model isopen={isopen} onclose={()=>setisopen(false)}>
-                <p>model content</p>
-            </Model>
-        </div>
-    )
-}
-
-createRoot(document.getElementById('root')).render(
-  <MyApp />
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// function Model({isopen,onclose,children}){
+//     if(!isopen){
+//         return null;
+//     }
+//     else{
+//     return(
+//         <div>
+//             {children}
+//             <button onClick={onclose}>close</button>
+//         </div>
+//     )}
+// }
+// function MyApp(){
+//     const [isopen, setisopen] = useState(false);
+//     return(
+//         <div>
+//             <button onClick={()=>setisopen(true)}>OPEN</button>
+//             <Model isopen={isopen} onclose={()=>setisopen(false)}>
+//                 <p>model content</p>
+//             </Model>
+//         </div>
+//     )
+// }
 
 // createRoot(document.getElementById('root')).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
+//   <MyApp />
 // )
+
+
+
+
+
+// function MyCar() {
+//   const [car, setCar] = useState({
+//     brand: "Ford",
+//     model: "Mustang",
+//     year: "1964",
+//     color: "red"
+//   });
+
+//   const updateColor = () => {
+//     setCar(previousState => {
+//       return { ...previousState, color: "blue" }
+//     });
+//   }
+
+//   return (
+//     <>
+//       <h1>My {car.brand}</h1>
+//       <p>
+//         It is a {car.color} {car.model} from {car.year}.
+//       </p>
+//       <button
+//         type="button"
+//         onClick={updateColor}
+//       >Blue</button>
+//     </>
+//   )
+// }
+
+// createRoot(document.getElementById('root')).render(
+//   <MyCar />
+// );
+
+
+
+// function kwtohp(kw){
+//     return kw * 10;
+// }
+// function Car(){
+//     return (
+//         <p>{kwtohp(5)}</p>
+//     )
+// }
+
+// createRoot(document.getElementById("root")).render(
+//     <Car />
+// )
+
+
+
+
+// function Car(){
+//     const myobj = {
+//         name: "Fiat",
+//         model: "500",
+//         color: "white"
+//     }
+//     return(
+//         <>
+//         <h1>My car is {myobj.color} {myobj.name} {myobj.model}</h1>
+//         </>
+//     )
+// }
+
+// createRoot(document.getElementById("root")).render(
+//     <Car />
+// )
+
+
+
+// function Car(){
+//     return (
+//         <h1 className='myclass1'>Hello Husnain</h1>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//     <Car/>
+// )
+
+
+// function Car(){
+//     const x = "myclass";
+//     return(
+//         <h1 className={x}>Hello World</h1>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//     <Car/>
+// )
+
+
+
+
+// function Car(){
+//     const myfunc = ()=>{
+//         alert('Hello Husnian');
+//     };
+//     return(
+//         <button onClick={myfunc}>Click Me</button>
+//     )
+// }
+
+
+
+
+
+// function Car(){
+//     const myfunc = ()=>{
+//         alert("Hello world");
+//     }
+//     return(
+//         <button onClick={myfunc} disabled = {false}>Click Me</button> // flase matlab chaly ga - true matlab disbale kr do or wo ab nahi chly ga
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//     <App/>
+// )
+
+
+
+// function Car(){
+//     const mystyles = {
+//         color: "red",
+//         fontSize: "20px",
+//         backgroundColor: "brown",
+//     }
+//     return (
+//         <h1 style={mystyles}>My Car</h1>
+//     )
+// }
+// createRoot(document.getElementById("root")).render(
+//     <Car/>
+// )
+
+
+
+
+// function Fruit(){
+//     const x=5;
+//     let y = "Apple";
+//     if(x<10){
+//         y="banana";
+//     }
+//     return(
+//         <h1>{y}</h1>
+//     )
+// }
+
+
+
+// function Fruit(){
+//     const x = 5;
+//     return(
+//         <h1>{(x)<10?"bannana":"Apple"}</h1>
+//     )
+// }
+// createRoot(document.getElementById("root")).render(
+//     <Fruit />
+// )
+
+
+
+// function Car(){
+//     return <h2>I am a Car!</h2>
+// }
+// function Garage(){
+//     return(
+//         <>
+//         <h1>Who lives in my Garage?</h1>
+//         {/* ya car uper function vali Car ha */}
+//         <Car /> 
+//         </>
+//     )
+// }
+// createRoot(document.getElementById("root")).render(
+//     <Garage />
+// )
+
+
+
+
+// function Car(props){
+//     return <h2>I am a {props.brand}</h2>
+// }
+// function Garage(){
+//     return (
+//         <>
+//         <h1>Who live in garage?</h1>
+//         <Car brand = "Ford" />
+//         <Car brand = "BMW" />
+//         </>
+//     )
+// }
+// createRoot(document.getElementById("root")).render(
+//     <Garage />
+// )
+
+
+
+
+// import Car from "./Vehicle.jsx"
+// createRoot(document.getElementById("root")).render(
+//     <Car />
+// )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
