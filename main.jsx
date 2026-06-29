@@ -1,8 +1,8 @@
-import { StrictMode, useState } from 'react'
+import {useTransition, StrictMode, useState, useRef, forwardRef } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-
+import _App from './App.jsx'
+import { BrowserRouter, Route, NavLink, Routes, Link, Outlet, useParams } from 'react-router-dom'
 
 
 
@@ -10,7 +10,7 @@ import App from './App.jsx'
 
 // createRoot(document.getElementById('root')).render(
 //   <StrictMode>
-//     <App />
+//     <_App />
 //   </StrictMode>,
 // )
 
@@ -665,6 +665,329 @@ import App from './App.jsx'
 // createRoot(document.getElementById("root")).render(
 //     <Car />
 // )
+
+
+
+// function Home() {
+//   return <h1>Home Page</h1>;
+// }
+
+// function About() {
+//   return <h1>About Page</h1>;
+// }
+
+// function Contact() {
+//   return <h1>Contact Page</h1>;
+// }
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <nav>
+//         <Link to="/">Home</Link> |
+//         <Link to="/about">About</Link> | 
+//         <Link to="/contact">Contact</Link>
+//       </nav>
+
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/contact" element={<Contact />} />
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// createRoot(document.getElementById('root')).render(
+//   <App />
+// );
+
+
+
+
+             
+
+// function Home(){
+//     return <h1>Home</h1>
+// }
+// function Products(){
+//     return (
+//     <div>
+//         <Outlet />
+//     <div>---------</div>
+//         <nav className='mb-1'>
+//             <Link to='/products/car'>Cars</Link>
+//             <Link to='/products/bike'>Bikes</Link>
+//         </nav>
+//     </div>
+// )}
+// function CarProducts(){
+//     return <h1>Car function</h1>
+// }
+// function BikeProducts(){
+//     return <h1>Bike function</h1>
+// }
+// function Contact(){
+//     return <h1>Contact Page</h1>
+// }
+
+// function App(){
+//     return(
+//         <BrowserRouter>
+//             <nav>
+//                 <Link to='/'>Home</Link>
+//                 <Link to='/products'>Products</Link>
+//                 <Link to='/contact'>Contact</Link>
+//             </nav>
+//             <Routes>
+//                 <Route path='/' element={<Home />} />
+//                 <Route path='/products' element={<Products />}>
+//                     <Route  path='car' element={<CarProducts />} />
+//                     <Route path='/products/bike' element={<BikeProducts />} />
+//                 </Route>
+//                 <Route path='/contact' element={<Contact />} />
+//             </Routes>
+//         </BrowserRouter>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//   <App />
+// );
+
+
+
+
+
+// const NavLinkstyles = ({isActive})=>({
+//     color: isActive ? '#007bff' : '#333',
+//   textDecoration: isActive ? 'none' : 'underline',
+//   fontWeight: isActive ? 'bold' : 'normal',
+//   padding: '5px 10px'
+// });
+// function Home(){
+//     return <h1>Home Page</h1>
+// }
+// function About(){
+//     return <h1>ABout Page</h1>
+// }
+// function Contact(){
+//     return <h1>Contact Page</h1>
+// }
+// function App(){
+//     return(
+//     <BrowserRouter>
+//         <nav className='mb-5'>
+//             <NavLink style={NavLinkstyles} to="/">Home</NavLink>
+//             <NavLink style={NavLinkstyles} to="/about">About</NavLink>
+//             <NavLink style={NavLinkstyles} to="/contact">Contact</NavLink>
+//         </nav>
+//         <Routes>
+//             <Route path='/' element={<Home />} />
+//             <Route path='/about' element={<About />} />
+//             <Route path='/contact' element={<contact />} />
+//         </Routes>
+//     </BrowserRouter>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//   <App />
+// );
+
+
+
+
+
+// function Info(){
+//     const {firstname} = useParams();
+//     return <h1>Hello {firstname}</h1>
+// }
+// function App(){
+//     return(
+//         <BrowserRouter>
+//             <nav>
+//                 <Link to="customer/Husnain">Husnain</Link>
+//                 <Link to="customer/Nawaz">Nawaz</Link>
+//                 <Link to="customer/Chodary">Chodary</Link>
+//             </nav>
+//             <Routes>
+//                 <Route path='/customer/:firstname' element={<Info />} />
+//             </Routes>
+//         </BrowserRouter>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//   <App />
+// );
+
+
+
+
+
+// function SearchBar(){
+//     const [text, settext] = useState("");
+//     const [result, setresult] = useState("");
+//     const [ispending, startTransition] = useTransition(); // initial transition value false ha jo ky ja rahi ha ispending ma
+//     // jab transition chalti ha to wo start kr daita ha ispending automatically true or jab transition nahi chati ispending false khud ba khud - or true tab hot aha jab inpput ma kuxh add ka
+//     const handleChange = (e)=>{
+//         // urgent input
+//         settext(e.target.value);
+//         startTransition(()=>{
+//         // non-urgent input
+//         // for(let i=0; i<1000000000; i++) {} // ya bohat ziada load ly raha ha page ka is waja sy delay ho raha jo b input ma likh rhy ham
+//         setresult(e.target.value)
+//     })
+// }
+//     return(
+//         <div>
+//             <input type="text" value={text} onChange={handleChange} className='border' />
+//             {ispending ? (
+//                 <p>Loading....</p>
+//             ) : (
+//                 <p>Search Result: {result} </p>
+//             )}
+//         </div>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//   <SearchBar />
+// );
+
+
+
+
+
+
+// function SearchResults({searchKeyword}){
+//     const items = [];
+//     if(searchKeyword){
+//         for(let i=0; i<300; i++){
+//             items.push(
+//                 <li key={i}>
+//                     Result for {searchKeyword} - {i}
+//                 </li>
+//             )
+//         }
+//     }
+//     return <ul>{items}</ul>
+// }
+// function App(){
+//     const [input, setInput] = useState('');
+//     const [query, setquery] = useState('');
+//     const [isPending, startTransition] = useTransition();
+
+//     const handleChange = (e)=>{
+//         // urgent update
+//         setInput(e.target.value)
+//         // No urgent
+//         startTransition(()=>{
+//             setquery(e.target.value)
+//         })
+//     }
+//     return(
+//         <div>
+//             <input type="text" value={input} onChange={handleChange} placeholder='Search...' />
+//             {
+//                 isPending && <p>Loading Sir....</p>
+//             }
+//             <SearchResults searchKeyword={query} />
+//         </div>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//   <App />
+// );
+
+
+
+
+// const MyInput = forwardRef((props, ref)=>(
+//     <input ref={ref} {...props} />
+// ));
+// function App(){
+//     const inputRef = useRef();
+//     const focusInput = ()=>{
+//         inputRef.current.focus();
+//     }
+//     return(
+//         <div>
+//             <MyInput className="border" ref={inputRef} placeholder="Type here..." />
+//             <button className='bg-amber-300' onClick={focusInput}>Focus Input</button>
+//         </div>
+//     )
+// }
+// createRoot(document.getElementById('root')).render(
+//   <App />
+// );
+
+
+
+
+function Myform(){
+    const [value1, setvalue1] = useState("");
+    const [value2, setvalue2] = useState("");
+    const [calculate, setcalculate] = useState("");
+    const handlechange1 = (e)=>{
+        setvalue1(e.target.value);
+    }
+    const handlechange2 = (e)=>{
+        setvalue2(e.target.value);
+    }    
+    const handlesubmit = (e)=>{
+        let result=0;
+        console.log(calculate , "uiiuiui")
+        if(calculate==="+"){
+            result = Number(value1)+Number(value2);
+        }
+        else if(calculate==="-"){
+            result = Number(value1)-Number(value2)
+        }
+        else if(calculate==='*'){
+            result = Number(value1)*Number(value2)
+        }
+        else if(calculate==="/"){
+            result = Number(value1)/Number(value2);
+        }
+        else{
+            alert("Wrong inputs")
+        }
+        alert(result);
+    }
+    return (
+        <form onSubmit={handlesubmit}>
+            <input className="border bg-amber-200" type="text" name={value1} onChange={handlechange1} />
+            <input className="border bg-amber-200" type="text" name={value2} onChange={handlechange2} />
+            <p className='bg-blue-400'>value is : {value1}</p>
+            <p className='bg-blue-400'>value is : {value2}</p>
+            <button onClick={()=>setcalculate("+")} type='button' className='border bg-amber-400 p-6'>+</button>
+            <button onClick={()=>setcalculate("-")} type='button' className='border bg-amber-400 p-6'>-</button>
+            <button onClick={()=>setcalculate("*")} type='button' className='border bg-amber-400 p-6'>*</button>
+            <button onClick={()=>setcalculate("/")} type='button' className='border bg-amber-400 p-6'>/</button>
+            <button type="submit" className='border bg-emerald-500 p-6'>Submit</button>
+        </form>
+    )
+}
+createRoot(document.getElementById('root')).render(
+  <Myform />
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
